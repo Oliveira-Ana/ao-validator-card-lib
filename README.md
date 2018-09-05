@@ -12,7 +12,7 @@ Exemplo de uso:
 ```
 $node
 > let numberCard = require("ao-validator-card-lib")
-> numbercard.cardValidator(36490102462661); //'true'
+> numbercard(36490102462661); //'true'
 ```
 
 ## versão 1.0.0
