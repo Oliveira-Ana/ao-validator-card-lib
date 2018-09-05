@@ -1,6 +1,5 @@
 const assert = require('assert');
-const validatorNumber = require('../index');
-const cardValidator = validatorNumber.cardValidator;
+const cardValidator = require('../index');
   
 describe("cardValidator()", () => {
 
@@ -13,11 +12,11 @@ describe("cardValidator()", () => {
   });
 
   it("Deveria retornar erro se for digitado apenas 1 número", () => {
-    assert.equal(cardValidator(1), "Digite o número correto do seu cartão! Ele não pode ter apenas 1 digito ou mais que 16!");
+    assert.equal(cardValidator(1), "Digite o número correto do seu cartão! Ele não pode ter menos que 13 digitos ou mais que 16!");
   });
 
   it("Deveria retornar erro se for digitado mais de 16 números", () => {
-    assert.equal(cardValidator(999999999999999999), "Digite o número correto do seu cartão! Ele não pode ter apenas 1 digito ou mais que 16!");
+    assert.equal(cardValidator(999999999999999999), "Digite o número correto do seu cartão! Ele não pode ter menos que 13 digitos ou mais que 16!");
   });
 
   it("Deveria retornar true para o numero 36490102462661", () => {
@@ -29,6 +28,12 @@ describe("cardValidator()", () => {
   });
 
   it("Deveria retornar false para o numero 1245868", () => {
-    assert.equal(cardValidator(1245868), false);
+    assert.equal(cardValidator(1245868),"Digite o número correto do seu cartão! Ele não pode ter menos que 13 digitos ou mais que 16!");
+  });
+  it("Deveria retornar false para o numero 12", () => {
+    assert.equal(cardValidator(12), "Digite o número correto do seu cartão! Ele não pode ter menos que 13 digitos ou mais que 16!");
+  });
+  it("Deveria retornar false para o numero 369", () => {
+    assert.equal(cardValidator(369), "Digite o número correto do seu cartão! Ele não pode ter menos que 13 digitos ou mais que 16!");
   });
 });
