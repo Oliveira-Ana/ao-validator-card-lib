@@ -21,9 +21,8 @@ function cardValidator(numberCard) {
     }
     if (typeof numberCard === 'string') {
       throw new Error('Digite apenas números nesse campo!');
-    }
-    else {
-      if (numberCard.toString().length < 13 || numberCard.toString().length > 16 ) {
+    } else {
+      if (numberCard.toString().length < 13 || numberCard.toString().length > 16) {
         throw new Error('Digite o número correto do seu cartão! Ele não pode ter menos que 13 digitos ou mais que 16!');
       } else {
         return validatorCard(numberCard);
